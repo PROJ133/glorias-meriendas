@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Gloria's Merienda's - your destination for refreshing drinks and delicious street food.">
+    <meta name="author" content="Enigo Miguel C. Mendoza">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>Gloria's Merienda's</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2IWW9S2z64D8kksd9En4pyBHhsK8MVacs72euNHUTC0j_PbpN1Quy2pQ&s=10" type="image/x-icon"> <!-- Favicon added here -->
+    <link href="https://fonts.googleapis.com/css2?family=Courier+New&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(135deg, #a0c4f5, #7aa1d5);
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4b6d92, #2f4a74);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 30px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #9bbfd5;
+            text-decoration: underline;
+        }
+        
+        section {
+            padding: 60px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2f4a74;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .product-item {
+            width: 30%;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+            background: linear-gradient(135deg, #d0e7f9, #b3d4f5);
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-item img:last-child {
+            margin-bottom: 0;
+        }
+
+        .product-item h3 {
+            color: #2f4a74;
+            font-size: 1.8em;
+            margin-bottom: 12px;
+            text-transform: capitalize;
+            font-weight: 700;
+        }
+
+        .product-item p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .product-item .price {
+            font-size: 1.4em;
+            color: #4b6d92;          
+            font-weight: 600;
+        }
+
+        .small-boxes {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .small-box {
+            width: 30%;
+            height: 120px;
+            background-color: #4b6d92;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .small-box p {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        @media (max-width: 768px) {
+            .product-item {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-item {
+                width: 100%;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .small-boxes {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .small-box {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Gloria's Merienda's</h1>
+        <div class="small-boxes">
+            <div class="small-box">
+                <p><a href="#products" style="color: white; text-decoration: none;">Products</a></p>
+            </div>
+            <div class="small-box">
+                <p><a href="#services" style="color: white; text-decoration: none;">Services</a></p>
+            </div>
+            <div class="small-box">
+                <p><a href="#about" style="color: white; text-decoration: none;">About Us</a></p>
+            </div>
+        </div>
+    </header>
+    <section id="products">
+        <h2>SULIT SARAP PRODUCTS</h2>
+        <div class="product-list">
+            <!-- Drinks Product Box -->
+            <div class="product-item" onclick="showModal('Drink')">
+                <img src="samalamig.jpegsamalamig.jpeg" alt="Refreshing Drinks">
+                <h3>DRINKS</h3>
+                <p>icy refreshing drinks that can light up your mood</p>
+                <p class="price">Price: PHP 5.00 - 10.00 - 20.00</p>
+                <h2>FLAVORS</h2>
+                <img src="buko juice.jpeg" alt="Buko Juice">
+                <img src="melon juice.jpeg" alt="Melon Juice">
+                <img src="black gulaman.jpeg" alt="Black Gulaman">
+            </div>
+
+            <!-- Sweet Pilipino Snacks Product Box -->
+            <div class="product-item" onclick="showModal('SweetSnacks')">
+                <img src="sweet fil snacksjpeg.jpeg" alt="Sweet Pilipino Snacks">
+                <h3>SWEET PILIPINO SNACKS</h3>
+                <p>Delicious, sweet treats to satisfy your cravings</p>
+                <p class="price">Price: PHP 15.00 - 30.00</p>
+                <h2>AVAILABLE SNACKS</h2>
+                 <img src="sweet fil snacks 2.jpeg" alt="Sweet Pilipino Snack">
+               
+                <img src="new snacks.jpeg" alt="New Snack Image">
+              
+                
+                <img src="sweet fil snacks 3.jpeg" alt="Pilipino Sweet Snack">
+            </div>
+        </div>
+    </section>
+
+    <!-- Address Section -->
+    <section id="address">
+        <h2>Our Address</h2>
+        <p>Visit us at:</p>
+        <address>
+            Gloria's Merienda's<br>
+            San Lorenzo Village, Barangay Mangino<br>
+            City of Gapan, N.E., Philippines<br>
+            <a href="mailto:info@gloriasmerienda.com">info@gloriasmerienda.com</a><br>
+            Phone: +09557213194
+        </address>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>REFRESHING DRINKS</li>
+            <li>SWEET PILIPINO SNACKS</li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to GLORIA'S MERIENDAS!Kami ay nagbibigay ng masarap na SWEET PILIPINO SNACKS at samalamig na talagang Pinoy!Gusto namin kayong tikman ang aming mga paboritong pagkain tulad ng TURON, BANANA CUE, at KAMOTE CUE!At syempre, hindi mawawala ang aming samalamig na BUKO, MELON, at BLACK GULAMAN!Welcome to GLORIA'S MERIENDAS!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Gloria's Merienda's. All rights reserved.</p>
+    </footer>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="productTitle"></h2>
+            <p id="productDescription"></p>
+            <p id="productPrice"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        
+        function showModal(productType) {
+            document.getElementById('productModal').style.display = "block";
+            const title = document.getElementById('productTitle');
+            const description = document.getElementById('productDescription');
+            const price = document.getElementById('productPrice');
+
+            if (productType === 'Drink') {
+                title.innerHTML = 'Refreshing Drinks';
+                description.innerHTML = 'Icy refreshing drinks that can light up your mood. Available in different flavors like Buko, Melon, and Black Gulaman.';
+                price.innerHTML = 'Price: PHP 5.00 - 10.00 - 20.00';
+            } else if (productType === 'SweetSnacks') {
+                title.innerHTML = 'Sweet Pilipino Snacks';
+                description.innerHTML = 'Delicious, sweet treats to satisfy your cravings. Try our Banana Cue, Turon, Kamote Cue, and more!';
+                price.innerHTML = 'Price: PHP 15.00 - 30.00';
+            }
+        }
+
+       
+        // Close the modal when clicking outside of it
+        window.onclick = function (event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = "none";
+        }
+
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
