@@ -8,7 +8,7 @@
     <meta name="author" content="Enigo Miguel C. Mendoza">
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <title>Gloria's Merienda's</title>
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2IWW9S2z64D8kksd9En4pyBHhsK8MVacs72euNHUTC0j_PbpN1Quy2pQ&s=10" type="image/x-icon"> <!-- Favicon added here -->
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2IWW9S2z64D8kksd9En4pyBHhsK8MVacs72euNHUTC0j_PbpN1Quy2pQ&s=10" type="image/x-icon"> 
     <link href="https://fonts.googleapis.com/css2?family=Courier+New&display=swap" rel="stylesheet">
     <style>
         * {
@@ -261,9 +261,9 @@
     <section id="products">
         <h2>SULIT SARAP PRODUCTS</h2>
         <div class="product-list">
-            <!-- Drinks Product Box -->
+            
             <div class="product-item" onclick="showModal('Drink')">
-                <img src="samalamig.jpegsamalamig.jpeg" alt="Refreshing Drinks">
+                <img src="samalamig.jpeg" alt="Refreshing Drinks">
                 <h3>DRINKS</h3>
                 <p>icy refreshing drinks that can light up your mood</p>
                 <p class="price">Price: PHP 5.00 - 10.00 - 20.00</p>
@@ -273,7 +273,6 @@
                 <img src="black gulaman.jpeg" alt="Black Gulaman">
             </div>
 
-            <!-- Sweet Pilipino Snacks Product Box -->
             <div class="product-item" onclick="showModal('SweetSnacks')">
                 <img src="sweet fil snacksjpeg.jpeg" alt="Sweet Pilipino Snacks">
                 <h3>SWEET PILIPINO SNACKS</h3>
@@ -329,7 +328,6 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
         
         function showModal(productType) {
@@ -349,8 +347,6 @@
             }
         }
 
-       
-        // Close the modal when clicking outside of it
         window.onclick = function (event) {
             const modal = document.getElementById('productModal');
             if (event.target === modal) {
